@@ -5,22 +5,18 @@
 //
 // Your task is to return a number from a string.
 // Details
-// 
+//
 // You will be given a string of numbers and letters mixed up, you have to return all the numbers in that string in the order they occur.
 
 var FilterString = function(value) {
-  var numbersOnly = '';
-  var valueAsArray = value.split('');
-  
-  for (var i = 0; i < valueAsArray.length; i++)
-  {
-    if (valueAsArray[i] == parseInt(valueAsArray[i]))
-    {
-      numbersOnly += valueAsArray[i];
+  valueAsArray = value.split('');
+  for (var i = 0; i < valueAsArray.length; i++) {
+    if (valueAsArray[i] != parseInt(valueAsArray[i])) {
+      valueAsArray[i] = null;
     }
   }
-  
-  return parseInt(numbersOnly);
+
+  return parseInt(valueAsArray.join(''));
 }
 
 // Tests
